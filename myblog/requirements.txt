@@ -1,0 +1,22 @@
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asgiref @ file:///tmp/build/80754af9/asgiref_1625643473416/work
+bcrypt==3.2.2
+certifi @ file:///C:/Windows/TEMP/abs_e9b7158a-aa56-4a5b-87b6-c00d295b01fanefpc8_o/croots/recipe/certifi_1655968940823/work/certifi
+cffi==1.15.1
+dj-database-url==1.0.0
+Django @ file:///tmp/build/80754af9/django_1625585912945/work
+django-heroku==0.3.1
+Faker==13.15.1
+gunicorn==20.1.0
+Pillow==9.2.0
+psycopg2 @ file:///C:/ci_310/psycopg2_1642085998310/work
+pycparser==2.21
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz @ file:///C:/Windows/TEMP/abs_90eacd4e-8eff-491e-b26e-f707eba2cbe1ujvbhqz1/croots/recipe/pytz_1654762631027/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+text-unidecode @ file:///Users/ktietz/demo/mc3/conda-bld/text-unidecode_1629401354553/work
+typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
+whitenoise==6.2.0
+wincertstore==0.2
