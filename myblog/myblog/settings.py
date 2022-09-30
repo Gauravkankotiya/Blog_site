@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [   # make this directory 
-    BASE_DIR / "static",  # add this type of path
+    os.path.join(BASE_DIR,"static"), # add absolute static file path
 ]
 
 LOGIN_REDIRECT_URL = '/'
