@@ -1,0 +1,61 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<h1 class="posttitle loader">{{post.title}}</h1>
+{% if post.published_date %}
+<div class="date postdate">
+   {{ post.published_date }}
+</div>
+{% else %}
+<a class='btn btn-dark' href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+
+{% endif %}
+
+<p class="postcontent">{{ post.text|safe}}</p><!-- safe is traslate this title to html -->
+
+{% if user.is_authenticated %}
+{% if user.id == post.author.id %}
+<a  class='btn btn-light' href="{% url 'post_edit' pk=post.pk %}">
+    <img src="https://img.icons8.com/ios-glyphs/30/000000/edit--v1.png"/>
+</a>
+<a  class='btn btn-light' href="{% url 'post_remove' pk=post.pk %}">
+    <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png"/>
+</a>
+{% endif %}
+{% endif %}
+
+{% if post.published_date %}
+<hr>
+
+<a  class='btn btn-dark btn-comment' href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+<div class="container-fluid">
+    {% for comment in post.comments.all %}
+        <br>
+        {% if user.is_authenticated or comment.approved_comment %}
+        
+        {% if not comment.approved_comment and user.id == post.author.id %}
+        {{ comment.text|safe }}
+        <p>Posted By: {{comment.author}}</p>
+        <a  class='btn btn-light' href="{% url 'comment_remove' pk=comment.pk %}">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png"/>
+        </a>
+        <a  class='btn btn-light' href="{% url 'comment_approve' pk=comment.pk %}">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/ok--v1.png"/>
+        </a>
+        {% endif %}
+         {% if comment.approved_comment %}
+        {{comment.created_date}}
+        {{ comment.text|safe}}
+        <p>Posted By: {{comment.author}}</p>
+        {% endif %}
+        {% endif %}
+        {% empty %} <!-- this is for checking if there is empty or no comments-->
+        <p>No Comments!</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+
+
+{% endblock %}
