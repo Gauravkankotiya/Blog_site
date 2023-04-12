@@ -120,8 +120,4 @@ def register(request):
     {'user_form':user_form,
     'registered':registered})
 
-@login_required
-def user_logout(request):
-    logout(request)
-    return redirect(reverse('post_list'))
 
